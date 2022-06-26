@@ -4,7 +4,7 @@ export default function About() {
   return (
     <><div className="jumbotron">
         <h4>About</h4>
-        <h1>"Hello, We’re SehaThin."</h1>
+        <h1>Hello, We’re SehaThin.</h1>
         <h2>OUR MISSION : Provide your need to achieve healthy body goals</h2>
       </div>
       <div className="descript">
