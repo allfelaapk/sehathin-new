@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@400;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
 .App {
   text-align: center;
 }
@@ -16,7 +21,7 @@
 .nav {
   display: flex;
   background: #aedbce;
-  padding: 0 6rem;
+  padding: 0 5rem;
   justify-content: space-between;
   color: rgb(0, 0, 0);
   align-items: center;
@@ -25,6 +30,7 @@
   list-style: none;
   position: relative;
   display: inline-table;
+  text-decoration: none;
 }
 .nav ul li {
   float: left;
