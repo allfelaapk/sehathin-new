@@ -10,14 +10,12 @@ function NavRoutes() {
   return (
     <>
       <Navbar />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/article" element={<Article />} />
-          <Route path="/pricing" element={<Pricing />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/article" element={<Article />} />
+        <Route path="/pricing" element={<Pricing />} />
+      </Routes>
     </>
   );
 }

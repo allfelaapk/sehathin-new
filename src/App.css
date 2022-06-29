@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@400;700&display=swap');
 
-body {
+* {
   font-family: 'Poppins', sans-serif;
 }
-.App {
+/* .App {
   text-align: center;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -21,22 +21,21 @@ body {
 .nav {
   display: flex;
   background: #aedbce;
-  padding: 0 5rem;
   justify-content: space-between;
   color: rgb(0, 0, 0);
   align-items: center;
+  padding: 0 6rem;
 }
-.nav ul {
+/* .nav ul {
   list-style: none;
   position: relative;
   display: inline-table;
   text-decoration: none;
-}
+} */
 .nav ul li {
   float: left;
-  display: block;
+  display: flex;
   padding: 25px;
-  color: #fff;
   text-decoration: none;
 }
 
@@ -46,7 +45,7 @@ body {
   justify-content: center;
   color: rgb(0, 0, 0);
   align-items: center;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
 }

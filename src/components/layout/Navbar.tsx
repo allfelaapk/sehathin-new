@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Outlet } from 'react-router';
 
 export default function Navbar() {
   return (
-    <nav className="nav">
-      <div className="logo-title">SehaThin</div>
+    <div className="nav">
+      <p>Sehathin</p>
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -19,6 +20,7 @@ export default function Navbar() {
           <Link to="/pricing">Pricing</Link>
         </li>
       </ul>
-    </nav>
+      <Outlet />
+    </div>
   );
 }
