@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { Typography } from '@mui/material';
+import { Typography, Card, Avatar, CardContent } from '@mui/material';
 import image from '../assets/hero-image.svg';
-import { Button } from '@mui/material';
+import { Button, CardActionArea, CardActions } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import FormBMI from '../components/formBmi/index';
@@ -33,6 +33,7 @@ const theme = createTheme({
 
 export default function HeroSection() {
   // const classes = useStyles();
+
   return (
     <div style={{ width: '100%' }}>
       {/* box for hero  */}
@@ -98,6 +99,45 @@ export default function HeroSection() {
         >
           <div>
             <FormBMI />
+          </div>
+          <div>
+            <Typography variant="h5" gutterBottom component="div">
+              Our Doctor
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              We have a professional doctor to help your body fit
+            </Typography>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <div style={{ justifyContent: 'center', display: 'flex' }}>
+                  <Avatar
+                    alt="Remy Sharp"
+                    src="/static/images/avatar/1.jpg"
+                    sx={{ width: 60, height: 60 }}
+                  />
+                </div>
+
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Lizard
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Lizards are a widespread group of squamate reptiles, with
+                    over 6,000 species, ranging across all continents except
+                    Antarctica
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Button
+                  size="small"
+                  sx={{ backgroundColor: '#aedbce', color: 'black' }}
+                  variant="outlined"
+                >
+                  Share
+                </Button>
+              </CardActions>
+            </Card>
           </div>
         </Box>
       </div>
