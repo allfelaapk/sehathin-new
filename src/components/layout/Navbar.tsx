@@ -19,6 +19,9 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
+          <Link to="/consult">Consult</Link>
+        </li>
+        <li>
           <Link to="/article" style={link}>
             Article
           </Link>
