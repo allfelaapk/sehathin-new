@@ -10,10 +10,9 @@ import Login from '../pages/auth/Login';
 function NavRoutes() {
   return (
     <>
-      <Navbar />
       <Routes>
-        {/* <Route path="/" element={<Login />} /> */}
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/article" element={<Article />} />
         <Route path="/pricing" element={<Pricing />} />

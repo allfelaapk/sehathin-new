@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router';
+import '../../App.css';
 
 export default function Navbar() {
   return (
@@ -8,19 +9,32 @@ export default function Navbar() {
       <p>Sehathin</p>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" style={link}>
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about" style={link}>
+            About
+          </Link>
         </li>
         <li>
-          <Link to="/article">Article</Link>
+          <Link to="/article" style={link}>
+            Article
+          </Link>
         </li>
         <li>
-          <Link to="/pricing">Pricing</Link>
+          <Link to="/pricing" style={link}>
+            Pricing
+          </Link>
         </li>
       </ul>
       <Outlet />
     </div>
   );
 }
+
+const link = {
+  textDecoration: 'none',
+  color: 'black',
+};

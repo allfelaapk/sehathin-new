@@ -4,7 +4,10 @@ import { Typography, Card, Avatar, CardContent } from '@mui/material';
 import image from '../assets/hero-image.svg';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import Footer from '../components/layout/Footer';
+import Navbar from '../components/layout/Navbar';
+import { logout } from '../firebase';
+import { useNavigate } from 'react-router-dom';
 import FormBMI from '../components/formBmi/index';
 
 const theme = createTheme({
@@ -33,9 +36,23 @@ const theme = createTheme({
 
 export default function HeroSection() {
   // const classes = useStyles();
+  const navigate = useNavigate();
 
+  async function handleLogout() {
+    await logout();
+    navigate('/');
+  }
   return (
     <div style={{ width: '100%' }}>
+      <Navbar />
+      <Button
+        size="small"
+        sx={{ backgroundColor: '#aedbce', color: 'black' }}
+        variant="outlined"
+        onClick={handleLogout}
+      >
+        logout
+      </Button>
       {/* box for hero  */}
       <ThemeProvider theme={theme}>
         <Box
@@ -138,9 +155,43 @@ export default function HeroSection() {
                 </Button>
               </CardActions>
             </Card>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <Card sx={{ maxWidth: 345 }}>
+                <CardActionArea>
+                  <div style={{ justifyContent: 'center', display: 'flex' }}>
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="/static/images/avatar/1.jpg"
+                      sx={{ width: 60, height: 60 }}
+                    />
+                  </div>
+
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      Lizard
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Lizards are a widespread group of squamate reptiles, with
+                      over 6,000 species, ranging across all continents except
+                      Antarctica
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <Button
+                    size="small"
+                    sx={{ backgroundColor: '#aedbce', color: 'black' }}
+                    variant="outlined"
+                  >
+                    Share
+                  </Button>
+                </CardActions>
+              </Card>
+            </div>
           </div>
         </Box>
       </div>
+      <Footer />
     </div>
   );
 }

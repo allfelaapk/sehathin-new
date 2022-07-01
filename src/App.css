@@ -1,8 +1,8 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@400;700&display=swap');
 
 * {
   font-family: 'Poppins', sans-serif;
-} */
+}
 /* .App {
   text-align: center;
 }
@@ -10,10 +10,6 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-} */
-/* .avatar {
-  justify-content: center;
-  align-items: center;
 } */
 
 @media (prefers-reduced-motion: no-preference) {
@@ -36,6 +32,9 @@
   display: inline-table;
   text-decoration: none;
 } */
+Link {
+  text-decoration: none;
+}
 .nav ul li {
   float: left;
   display: flex;
