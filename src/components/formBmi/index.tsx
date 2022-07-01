@@ -10,15 +10,42 @@ import {
   Radio,
 } from '@mui/material';
 import * as React from 'react';
+// import healthy from '../../assets/healthy.png';
+// import overweight from '../../assets/overweight.png';
+// import underweight from '../../assets/underweight.png';
 
 let bmi: any;
 let img: any;
+
+// interface Arr {
+//   img: string
+//   name: string
+// }
+// const result: Arr = [
+//   {
+//     img: underweight
+//     name: 'underweight',
+//   },
+//   {
+//     img: healthy
+//     name: 'healthy',
+//   },
+//   {
+//     img: overweight
+//     name: 'overweight',
+//   },
+// ];
 
 export default function FormBMI() {
   const [gender, setGender] = React.useState('');
   const [indeks, setIndeks] = React.useState({ height: 0, weight: 0 });
   const [bmiResult, setBmiResult] = React.useState('');
   const [message, setMessage] = React.useState('');
+
+  // function calculateBmi() {
+  //   const total = x;
+  //   setBmiResult(total);
+  // }
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGender((event.target as HTMLInputElement).value);

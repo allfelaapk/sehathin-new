@@ -1,12 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Navbar from '../components/layout/Navbar';
+
 import Home from '../pages/Home';
 import About from '../pages/About';
 import Article from '../pages/Article';
 import Pricing from '../pages/Pricing';
 import Consult from '../pages/Consult';
-import Login from '../pages/auth/Login';
 
 function NavRoutes() {
   return (
