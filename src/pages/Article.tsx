@@ -5,6 +5,8 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import './Article.css';
+import Footer from '../components/layout/Footer';
+import Navbar from '../components/layout/Navbar';
 
 const Img = styled('img')({
   margin: 'auto',
@@ -15,7 +17,9 @@ const Img = styled('img')({
 
 export default function Article() {
   return ( 
-  <><><><><><><><><div className="title">
+  <><><><><><><><>
+  <Navbar />
+  <div className="title">
       <p>Medical and Health Article</p>
     </div>
   
@@ -341,7 +345,9 @@ export default function Article() {
             </Grid>
           </Grid>
         </Grid>
-      </Paper></>
+      </Paper>
+      <Footer />
+      </>
 
   );
 }
