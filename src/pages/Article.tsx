@@ -349,17 +349,3 @@ export default function Article() {
 
 
 
-// Source Link
-// https://theconversation.com/gaining-weight-can-be-difficult-but-here-are-the-safest-ways-to-do-it-150035
-// https://www.everydayhealth.com/diet-nutrition/importance-healthy-eating-habits/
-// https://www.hsph.harvard.edu/nutritionsource/healthy-weight/
-// https://stepsforliving.hemophilia.org/step-up/maintaining-a-healthy-body/benefits-of-sports-and-fitness
-// https://www.sharecare.com/diet-nutrition/diets/good-and-bad-fats-the-ultimate-guide
-// https://www.sharecare.com/diet-nutrition/foods-make-hungrier-what-eat-instead
-// https://www.stylecraze.com/articles/exercises-that-help-you-gain-weight/
-// https://healthyeating.sfgate.com/advantages-eating-healthy-food-3731.html
-
-
-// <a href="https://healthyeating.sfgate.com/advantages-eating-healthy-food-3731.html">
-//                    Read More
- //                 </a>

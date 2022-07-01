@@ -1,24 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Outlet } from 'react-router';
+import '../../App.css';
 
 export default function Navbar() {
   return (
-    <nav className="nav">
-      <div className="logo-title">SehaThin</div>
+    <div className="nav">
+      <p>Sehathin</p>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" style={link}>
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about" style={link}>
+            About
+          </Link>
         </li>
         <li>
-          <Link to="/article">Article</Link>
+          <Link to="/consult">Consult</Link>
         </li>
         <li>
-          <Link to="/pricing">Pricing</Link>
+          <Link to="/article" style={link}>
+            Article
+          </Link>
+        </li>
+        <li>
+          <Link to="/pricing" style={link}>
+            Pricing
+          </Link>
         </li>
       </ul>
-    </nav>
+      <Outlet />
+    </div>
   );
 }
+
+const link = {
+  textDecoration: 'none',
+  color: 'black',
+};
