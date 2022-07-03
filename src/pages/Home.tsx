@@ -47,7 +47,12 @@ export default function HeroSection() {
       <Navbar />
       <Button
         size="small"
-        sx={{ backgroundColor: '#aedbce', color: 'black' }}
+        sx={{
+          backgroundColor: '#aedbce',
+          color: 'black',
+          float: 'right',
+          position: 'relative',
+        }}
         variant="outlined"
         onClick={handleLogout}
       >
@@ -136,12 +141,10 @@ export default function HeroSection() {
 
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    Dr. Ximon
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    Professional Doctor for Nutrition
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -151,7 +154,7 @@ export default function HeroSection() {
                   sx={{ backgroundColor: '#aedbce', color: 'black' }}
                   variant="outlined"
                 >
-                  Share
+                  Chat Here
                 </Button>
               </CardActions>
             </Card>
@@ -168,12 +171,10 @@ export default function HeroSection() {
 
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                      Lizard
+                      Dr. Shinta
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Lizards are a widespread group of squamate reptiles, with
-                      over 6,000 species, ranging across all continents except
-                      Antarctica
+                      Professional Doctor for Nutrition
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -183,7 +184,7 @@ export default function HeroSection() {
                     sx={{ backgroundColor: '#aedbce', color: 'black' }}
                     variant="outlined"
                   >
-                    Share
+                    Chat Here
                   </Button>
                 </CardActions>
               </Card>
