@@ -144,7 +144,7 @@ export default function HeroSection() {
                     Dr. Ximon
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Professional Doctor for Nutrition
+                    Professional Doctor
                   </Typography>
                 </CardContent>
               </CardActionArea>
