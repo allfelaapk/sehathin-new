@@ -6,13 +6,15 @@ import About from '../pages/About';
 import Article from '../pages/Article';
 import Pricing from '../pages/Pricing';
 import Consult from '../pages/Consult';
+import Login from '../pages/auth/Login';
 
 function NavRoutes() {
   return (
     <>
       <div className="container">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/consult" element={<Consult />} />
           <Route path="/article" element={<Article />} />
