@@ -205,7 +205,7 @@ export default function HeroSection() {
                 color="text.secondary"
                 gutterBottom
               >
-                Word of the Day
+                Feature
               </Typography>
               <Typography variant="h5" component="div">
                 be{bull}nev{bull}o{bull}lent
@@ -230,7 +230,7 @@ export default function HeroSection() {
                 color="text.secondary"
                 gutterBottom
               >
-                Word of the Day
+                Feature
               </Typography>
               <Typography variant="h5" component="div">
                 be{bull}nev{bull}o{bull}lent
@@ -255,7 +255,7 @@ export default function HeroSection() {
                 color="text.secondary"
                 gutterBottom
               >
-                Word of the Day
+                Feature
               </Typography>
               <Typography variant="h5" component="div">
                 be{bull}nev{bull}o{bull}lent
