@@ -124,22 +124,22 @@ export default function HeroSection() {
             <Typography variant="body1" gutterBottom>
               We have a professional doctor to help your body fit
             </Typography>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345, m: 5 }}>
               <CardActionArea>
                 <div style={{ justifyContent: 'center', display: 'flex' }}>
                   <Avatar
-                    alt="Remy Sharp"
-                    src="/static/images/avatar/1.jpg"
+                    alt="doctor"
+                    src="https://source.unsplash.com/pTrhfmj2jDA"
                     sx={{ width: 60, height: 60 }}
                   />
                 </div>
 
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    Dr. Ximon
+                    Dr. Ladusing
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Professional Doctor
+                    Professional Doctor for Nutrition
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -153,20 +153,20 @@ export default function HeroSection() {
                 </Button>
               </CardActions>
             </Card>
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
-              <Card sx={{ maxWidth: 345 }}>
+            <div style={{ display: 'grid', flexDirection: 'column' }}>
+              <Card sx={{ maxWidth: 345, m: 5 }}>
                 <CardActionArea>
                   <div style={{ justifyContent: 'center', display: 'flex' }}>
                     <Avatar
-                      alt="Remy Sharp"
-                      src="/static/images/avatar/1.jpg"
+                      alt="doctor"
+                      src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                       sx={{ width: 60, height: 60 }}
                     />
                   </div>
 
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                      Dr. Shinta
+                      Dr. Rohayah
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       Professional Doctor for Nutrition
@@ -188,6 +188,17 @@ export default function HeroSection() {
         </Box>
       </div>
       <div>
+        <Typography
+          variant="h4"
+          sx={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            display: 'flex',
+            p: 5,
+          }}
+        >
+          Our Service
+        </Typography>
         <Box
           sx={{
             display: 'flex',
@@ -208,7 +219,7 @@ export default function HeroSection() {
                 Feature
               </Typography>
               <Typography variant="h5" component="div">
-                be{bull}nev{bull}o{bull}lent
+                Meal Planner
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
                 adjective

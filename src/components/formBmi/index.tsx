@@ -75,7 +75,7 @@ export default function FormBMI() {
       // logic for message
       if (bmi < 18.5) {
         setMessage('you are underweight');
-      } else if (bmi >= 18.5 && bmi < 30) {
+      } else if (bmi >= 18.5 && bmi < 25) {
         setMessage(' you are ideal');
       } else {
         setMessage('oh no, you are overweight');
@@ -89,7 +89,7 @@ export default function FormBMI() {
     } else {
       if (bmi < 18.5) {
         img = require('../../assets/underweight.png');
-      } else if (bmi >= 18.5 && bmi < 30) {
+      } else if (bmi >= 18.5 && bmi < 26) {
         img = require('../../assets/healthy.png');
       } else {
         img = require('../../assets/overweight.png');
