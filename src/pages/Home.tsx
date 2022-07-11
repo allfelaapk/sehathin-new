@@ -22,13 +22,20 @@ import FormBMI from '../components/formBmi/index';
 // });
 
 export default function HeroSection() {
-  // const classes = useStyles();
+  // create hook to redirect to another page
   const navigate = useNavigate();
 
   async function handleLogout() {
     await logout();
     navigate('/');
   }
+
+  const navigateToAbout = () => {
+    navigate('/about');
+  };
+  const navigateToConsult = () => {
+    navigate('/consult');
+  };
 
   const bull = (
     <Box
@@ -95,6 +102,7 @@ export default function HeroSection() {
             // classname={classes.root}
             variant="contained"
             sx={{ backgroundColor: '#aedbce', color: 'black' }}
+            onClick={navigateToAbout}
           >
             Get Started
           </Button>
@@ -148,6 +156,7 @@ export default function HeroSection() {
                   size="small"
                   sx={{ backgroundColor: '#aedbce', color: 'black' }}
                   variant="outlined"
+                  onClick={navigateToConsult}
                 >
                   Chat Here
                 </Button>
@@ -178,6 +187,7 @@ export default function HeroSection() {
                     size="small"
                     sx={{ backgroundColor: '#aedbce', color: 'black' }}
                     variant="outlined"
+                    onClick={navigateToConsult}
                   >
                     Chat Here
                   </Button>
