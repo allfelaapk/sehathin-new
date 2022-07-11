@@ -17,25 +17,6 @@ import * as React from 'react';
 let bmi: any;
 let img: any;
 
-// interface Arr {
-//   img: string
-//   name: string
-// }
-// const result: Arr = [
-//   {
-//     img: underweight
-//     name: 'underweight',
-//   },
-//   {
-//     img: healthy
-//     name: 'healthy',
-//   },
-//   {
-//     img: overweight
-//     name: 'overweight',
-//   },
-// ];
-
 export default function FormBMI() {
   const [gender, setGender] = React.useState('');
   const [indeks, setIndeks] = React.useState({ height: 0, weight: 0 });
@@ -153,6 +134,7 @@ export default function FormBMI() {
           sx={{ my: 2, backgroundColor: '#aedbce', color: 'black' }}
           type="submit"
           variant="contained"
+          data-testid="buttonForm"
         >
           Calculate
         </Button>
