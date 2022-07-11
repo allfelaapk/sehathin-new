@@ -232,12 +232,12 @@ export default function HeroSection() {
                 Meal Planner
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                adjective
+                New Program
               </Typography>
               <Typography variant="body2">
-                well meaning and kindly.
+                Provide you to track your meal
                 <br />
-                {'"a benevolent smile"'}
+                <br />
               </Typography>
             </CardContent>
             <CardActions>
@@ -254,15 +254,15 @@ export default function HeroSection() {
                 Feature
               </Typography>
               <Typography variant="h5" component="div">
-                be{bull}nev{bull}o{bull}lent
+                Calorie Counter
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                adjective
+                New Program
               </Typography>
               <Typography variant="body2">
-                well meaning and kindly.
+                Provide you to control your calorie
                 <br />
-                {'"a benevolent smile"'}
+                <br />
               </Typography>
             </CardContent>
             <CardActions>
@@ -279,15 +279,15 @@ export default function HeroSection() {
                 Feature
               </Typography>
               <Typography variant="h5" component="div">
-                be{bull}nev{bull}o{bull}lent
+                Fitness Program
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                adjective
+                New Program
               </Typography>
               <Typography variant="body2">
-                well meaning and kindly.
+                Provide you to keep your body more ideal
                 <br />
-                {'"a benevolent smile"'}
+                <br />
               </Typography>
             </CardContent>
             <CardActions>
