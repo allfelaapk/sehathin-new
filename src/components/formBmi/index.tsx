@@ -10,6 +10,9 @@ import {
   Radio,
 } from '@mui/material';
 import * as React from 'react';
+// import healthy from '../../assets/healthy.png';
+// import overweight from '../../assets/overweight.png';
+// import underweight from '../../assets/underweight.png';
 
 let bmi: any;
 let img: any;
@@ -19,6 +22,11 @@ export default function FormBMI() {
   const [indeks, setIndeks] = React.useState({ height: 0, weight: 0 });
   const [bmiResult, setBmiResult] = React.useState('');
   const [message, setMessage] = React.useState('');
+
+  // function calculateBmi() {
+  //   const total = x;
+  //   setBmiResult(total);
+  // }
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGender((event.target as HTMLInputElement).value);
@@ -48,7 +56,7 @@ export default function FormBMI() {
       // logic for message
       if (bmi < 18.5) {
         setMessage('you are underweight');
-      } else if (bmi >= 18.5 && bmi < 30) {
+      } else if (bmi >= 18.5 && bmi < 25) {
         setMessage(' you are ideal');
       } else {
         setMessage('oh no, you are overweight');
@@ -62,7 +70,7 @@ export default function FormBMI() {
     } else {
       if (bmi < 18.5) {
         img = require('../../assets/underweight.png');
-      } else if (bmi >= 18.5 && bmi < 30) {
+      } else if (bmi >= 18.5 && bmi < 26) {
         img = require('../../assets/healthy.png');
       } else {
         img = require('../../assets/overweight.png');
@@ -126,6 +134,7 @@ export default function FormBMI() {
           sx={{ my: 2, backgroundColor: '#aedbce', color: 'black' }}
           type="submit"
           variant="contained"
+          data-testid="buttonForm"
         >
           Calculate
         </Button>
