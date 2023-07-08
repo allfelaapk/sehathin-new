@@ -1,7 +1,5 @@
-import React from 'react';
 import '../src/App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Typography } from '@mui/material';
 import NavRoutes from './routes/NavRoutes';
 
 const theme = createTheme({
