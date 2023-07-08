@@ -2,6 +2,9 @@
 
 * {
   font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 /* .App {
   text-align: center;
@@ -35,6 +38,7 @@
 Link {
   text-decoration: none;
 }
+
 .nav ul li {
   float: left;
   display: flex;

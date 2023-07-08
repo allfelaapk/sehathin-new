@@ -1,26 +1,22 @@
-import React from 'react';
-import { Box, Button, Card, CardContent, Chip, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
-import CardList from '../components/card/CardList';
-import { Container } from '@mui/system';
+import { Box, Button, Card, CardContent, Chip, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import Footer from '../components/layout/Footer';
 import Navbar from '../components/layout/Navbar';
+import Jumbotron from '../components/layout/Jumbotron';
 
 export default function Pricing() {
   return (
     <>
       <Navbar />
-      <Box
-        sx={{ px: 2, py: 8, backgroundColor: '#aedbce', textAlign: 'center' }}
-      >
-        <Chip label="Pricing" color="success" />
-        <Typography variant="h3">Let's adopt healthier and more meaningful life together with SehaThin
-        </Typography>
-      </Box>
+      <Jumbotron
+        label="Pricing"
+        title="Let's adopt healthier"
+        subtitle="and more meaningful life together with SehaThin"
+      />
 
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', padding: '30px 0' }}>
-        <Card sx={{ maxWidth: 300 }} variant="outlined" style={{ borderRadius: '10px' }}>
+      <Box style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', padding: '30px 0', flexWrap: 'wrap' }}>
+        <Card sx={{ maxWidth: 300, marginBottom: '20px' }} variant="outlined" style={{ borderRadius: '10px', flex: '1 1 300px' }}>
           <CardContent>
-            <Chip label="Free" color="success" style={{ marginBottom: '10px' }} />
+            <Chip label="Free" style={{ marginBottom: '10px' }} />
             <Typography variant="h5" component="div">
               IDR 0K/<span style={{fontSize: '12px'}}>Monthly</span>
             </Typography>
@@ -61,12 +57,12 @@ export default function Pricing() {
                 <ListItemText primary="Calorie Counter" style={{ fontSize: '14px' }} />
               </ListItem>
             </List>
-            <Button variant="outlined" sx={{width: '100%', boxShadow: 'none', borderRadius: '100px'}} color="success">SELECT PLAN</Button>
+            <Button variant="outlined" sx={{width: '100%', boxShadow: 'none', borderRadius: '100px'}} color="success">YOUR PLAN</Button>
           </CardContent>
         </Card>
-        <Card sx={{ maxWidth: 300 }} style={{ borderRadius: '10px', backgroundColor: '#aedbce', marginLeft: '10px' }}>
+        <Card sx={{ maxWidth: 300, marginBottom: '20px', marginLeft: { xs: '0px', md: '10px' } }} style={{ borderRadius: '10px', backgroundColor: '#19AE15', color: 'white', flex: '1 1 300px' }}>
           <CardContent>
-            <Chip label="Free" color="success" style={{ marginBottom: '10px' }} />
+            <Chip label="Paid" style={{ marginBottom: '10px', color: 'white' }} />
             <Typography variant="h5" component="div">
               IDR 124K/<span style={{fontSize: '12px'}}>Monthly</span>
             </Typography>
@@ -110,7 +106,7 @@ export default function Pricing() {
             <Button variant="contained" sx={{width: '100%', boxShadow: 'none', borderRadius: '100px'}} color="success">SELECT PLAN</Button>
           </CardContent>
         </Card>
-      </div>
+      </Box>
 
       <Footer />
     </>

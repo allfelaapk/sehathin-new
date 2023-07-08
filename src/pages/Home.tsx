@@ -1,302 +1,150 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import { Typography, Card, Avatar, CardContent } from '@mui/material';
-import image from '../assets/hero-image.svg';
-import { Button, CardActionArea, CardActions } from '@mui/material';
-
+import { useRef } from 'react';
+import { Box, Typography, Grid, Container, Button } from '@mui/material';
+import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
+import Hero from '../components/layout/Hero';
 import Footer from '../components/layout/Footer';
-import Navbar from '../components/layout/Navbar';
-import { logout } from '../firebase';
-import { useNavigate } from 'react-router-dom';
+import doctorList from '../doctors.json';
+import ServiceCard from '../components/card/ServiceCard';
 import FormBMI from '../components/formBmi/index';
+import DoctorCard from '../components/card/DoctorCard';
+import '../assets/styles/Carousel.css';
 
-// let theme = createTheme();
-// theme = responsiveFontSizes(theme);
+export default function Home() {
+  const sliderRef = useRef<HTMLDivElement>(null);
 
-// const useStyles = makeStyles({
-//   root: {
-//     '&:hover': {
-//       backgroundColor: 'transparent',
-//     },
-//   },
-// });
-
-export default function HeroSection() {
-  // create hook to redirect to another page
-  const navigate = useNavigate();
-
-  async function handleLogout() {
-    await logout();
-    navigate('/');
-  }
-
-  const navigateToAbout = () => {
-    navigate('/about');
+  const handleScrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft -= 200;
+    }
   };
-  const navigateToConsult = () => {
-    navigate('/consult');
+  
+  const handleScrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft += 200;
+    }
   };
 
-  const bull = (
-    <Box
-      component="span"
-      sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-    >
-      •
-    </Box>
-  );
+  const boxStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: { xs: 2, md: 4 },
+    borderRadius: 1,
+  };
+
+  const titleStyle = {
+    color: '#19AE15',
+    fontSize: { xs: '1.2em', md: '2.25em' },
+  };
+
+  const subtitleStyle = {
+    my: 2,
+    fontSize: { xs: '1em', md: '1.2em' },
+  };
+
+  const sectionStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    textAlign: 'center',
+    pt: 12,
+  };
+
+  const gridItemStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    my: { xs: 2, md: 8 },
+  };
+
   return (
-    <div style={{ width: '100%' }}>
-      <Navbar />
-      <Button
-        size="small"
-        sx={{
-          backgroundColor: '#aedbce',
-          color: 'black',
-          float: 'right',
-          position: 'relative',
-        }}
-        variant="outlined"
-        onClick={handleLogout}
-      >
-        logout
-      </Button>
-      {/* box for hero  */}
+    <>
+      <Container>
+        <Hero />
+        <Box sx={boxStyle}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <Box sx={gridItemStyle}>
+                <Typography variant='h4' sx={titleStyle}>
+                  Calculate Body Mass Index (BMI)
+                </Typography>
+                <Typography variant='body1' sx={subtitleStyle}>
+                  Step into the digital scale of health: Calculate now and let numbers shape your journey to a better you!
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <FormBMI />
+            </Grid>
+          </Grid>
+        </Box>
 
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: {
-            xs: 'column',
-            md: 'row',
-          },
-          p: 5,
-          m: 5,
-          bgcolor: 'background.paper',
-          borderRadius: 1,
-          justifyContent: 'space-evenly',
-        }}
-      >
-        <Box
-          component="img"
-          sx={{
-            height: 1000,
-            width: 500,
-            maxHeight: { xs: 233, md: 167 },
-            maxWidth: { xs: 350, md: 250 },
-          }}
-          alt="hero image"
-          src={image}
-        />
-        <div>
-          {' '}
-          <Typography variant="h3">Set your healthy body goals.</Typography>
-          <div>
-            <Typography variant="body1">
-              SehaThin combines Meal Planner, Calorie counter, Nutrition food
-              suggestions, Discussion and Doctor Consult in one place to provide
-              you achieve it.
-            </Typography>
+        <Box sx={sectionStyle}>
+          <Typography variant='h4' sx={titleStyle}>
+            Our Nutritionists
+          </Typography>
+          <Typography variant='body1' sx={subtitleStyle}>
+            We have experts to help you stay fit
+          </Typography>
+        </Box>
+
+        <div className="carousel-container" ref={sliderRef}>
+          <div className="carousel">
+            {doctorList.map((doctor) => (
+              <DoctorCard
+                key={doctor.id}
+                name={doctor.name}
+                imageUrl={doctor.imageUrl}
+              />
+            ))}
           </div>
-          <Button
-            // classname={classes.root}
-            variant="contained"
-            sx={{ backgroundColor: '#aedbce', color: 'black' }}
-            onClick={navigateToAbout}
-          >
-            Get Started
-          </Button>
         </div>
-      </Box>
 
-      <div>
-        {/* box for section2 */}
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            p: 1,
-            m: 1,
-            bgcolor: 'background.paper',
-            borderRadius: 1,
-            justifyContent: 'space-evenly',
-          }}
-        >
-          <div>
-            <FormBMI />
-          </div>
-          <div>
-            <Typography variant="h5" gutterBottom component="div">
-              Our Doctor
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              We have a professional doctor to help your body fit
-            </Typography>
-            <Card sx={{ maxWidth: 345, m: 5 }}>
-              <CardActionArea>
-                <div style={{ justifyContent: 'center', display: 'flex' }}>
-                  <Avatar
-                    alt="doctor"
-                    src="https://source.unsplash.com/pTrhfmj2jDA"
-                    sx={{ width: 60, height: 60 }}
-                  />
-                </div>
+        <Button onClick={handleScrollLeft} title="Scroll Left">
+          <KeyboardArrowLeft />
+        </Button>
 
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Dr. Ladusing
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Professional Doctor for Nutrition
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button
-                  size="small"
-                  sx={{ backgroundColor: '#aedbce', color: 'black' }}
-                  variant="outlined"
-                  onClick={navigateToConsult}
-                >
-                  Chat Here
-                </Button>
-              </CardActions>
-            </Card>
-            <div style={{ display: 'grid', flexDirection: 'column' }}>
-              <Card sx={{ maxWidth: 345, m: 5 }}>
-                <CardActionArea>
-                  <div style={{ justifyContent: 'center', display: 'flex' }}>
-                    <Avatar
-                      alt="doctor"
-                      src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                      sx={{ width: 60, height: 60 }}
-                    />
-                  </div>
+        <Button onClick={handleScrollRight} title="Scroll Right">
+          <KeyboardArrowRight />
+        </Button>
 
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Dr. Rohayah
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Professional Doctor for Nutrition
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-                <CardActions>
-                  <Button
-                    size="small"
-                    sx={{ backgroundColor: '#aedbce', color: 'black' }}
-                    variant="outlined"
-                    onClick={navigateToConsult}
-                  >
-                    Chat Here
-                  </Button>
-                </CardActions>
-              </Card>
-            </div>
-          </div>
+        <Box sx={sectionStyle}>
+          <Typography variant='h4' sx={titleStyle}>
+            Our Service
+          </Typography>
+          <Typography variant='body1' sx={subtitleStyle}>
+            What can we do for you?
+          </Typography>
         </Box>
-      </div>
-      <div>
-        <Typography
-          variant="h4"
-          sx={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            display: 'flex',
-            p: 5,
-          }}
-        >
-          Our Service
-        </Typography>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            p: 1,
-            m: 1,
-            bgcolor: 'background.paper',
-            borderRadius: 1,
-          }}
-        >
-          <Card sx={{ minWidth: 275 }}>
-            <CardContent>
-              <Typography
-                sx={{ fontSize: 14 }}
-                color="text.secondary"
-                gutterBottom
-              >
-                Feature
-              </Typography>
-              <Typography variant="h5" component="div">
-                Meal Planner
-              </Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                New Program
-              </Typography>
-              <Typography variant="body2">
-                Provide you to track your meal
-                <br />
-                <br />
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-          <Card sx={{ minWidth: 275 }}>
-            <CardContent>
-              <Typography
-                sx={{ fontSize: 14 }}
-                color="text.secondary"
-                gutterBottom
-              >
-                Feature
-              </Typography>
-              <Typography variant="h5" component="div">
-                Calorie Counter
-              </Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                New Program
-              </Typography>
-              <Typography variant="body2">
-                Provide you to control your calorie
-                <br />
-                <br />
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-          <Card sx={{ minWidth: 275 }}>
-            <CardContent>
-              <Typography
-                sx={{ fontSize: 14 }}
-                color="text.secondary"
-                gutterBottom
-              >
-                Feature
-              </Typography>
-              <Typography variant="h5" component="div">
-                Fitness Program
-              </Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                New Program
-              </Typography>
-              <Typography variant="body2">
-                Provide you to keep your body more ideal
-                <br />
-                <br />
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-        </Box>
-      </div>
+
+        <div className="carousel-container">
+          <div className="service-carousel">
+            <ServiceCard
+              image="🕗"
+              title="Meal Planner"
+              description="Provide you to track your meal"
+            />
+            <ServiceCard
+              image="📝"
+              title="Calorie Counter"
+              description="Provide you to control calorie"
+            />
+            <ServiceCard
+              image="📱"
+              title="Consultation"
+              description="Provide you to online consult"
+            />
+            <ServiceCard
+              image="🍳"
+              title="Nutrition Food"
+              description="Provide you to keep clean eat"
+            />
+          </div>
+        </div>
+      </Container>
       <Footer />
-    </div>
+    </>
   );
 }

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import '../../assets/styles/Dashboard.css';
-import { auth, db, logout } from '../../firebase';
+import { auth, logout } from '../../firebase/auth';
+import { db } from '../../firebase/db';
 import { query, collection, getDocs, where } from 'firebase/firestore';
 
 function Dashboard() {
@@ -33,7 +34,7 @@ function Dashboard() {
       }
     };
     if (loading) return;
-    if (!user) return navigate('/');
+    if (!user) return navigate('/login');
     fetchUserName();
   }, [user, loading, navigate, error]);
 
