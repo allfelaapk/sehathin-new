@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: 'sehathin-ec047.firebaseapp.com',
-  projectId: 'sehathin-ec047',
-  storageBucket: 'sehathin-ec047.appspot.com',
-  messagingSenderId: '214676627052',
-  appId: '1:214676627052:web:da5e3bf9a0dd93f718c249',
-  measurementId: 'G-E54YZDBT6X',
+  authDomain: "sehathin-v2.firebaseapp.com",
+  projectId: "sehathin-v2",
+  storageBucket: "sehathin-v2.appspot.com",
+  messagingSenderId: "761380557128",
+  appId: "1:761380557128:web:aba90d2dbf96919b1ce37d"
+  // measurementId: 'G-E54YZDBT6X',
 };
 
 const app = initializeApp(firebaseConfig);

@@ -1,24 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
   Container,
-  Grid,
-  TextField,
   Typography,
+  Grid,
 } from '@mui/material';
+import logo from '../../assets/images/SehaThin.png';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import {
   auth,
-  registerWithEmailAndPassword,
   signInWithGoogle,
+  signInWithFacebook,
 } from '../../firebase/auth';
+import { Google, Facebook } from '@mui/icons-material';
 
 const Register = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -29,16 +27,17 @@ const Register = () => {
     if (user) navigate('/dashboard');
   }, [user, loading, navigate]);
 
-  const handleRegister = () => {
-    if (!name) {
-      alert('Please enter name');
-      return;
-    }
-    registerWithEmailAndPassword(name, email, password);
-  };
-
   const handleGoogleRegister = () => {
     signInWithGoogle();
+  };
+
+  const handleFacebookRegister = () => {
+    signInWithFacebook();
+  };
+
+  const logoStyle = {
+    width: '100%',
+    height: 'auto',
   };
 
   if (loading) {
@@ -51,59 +50,42 @@ const Register = () => {
 
   return (
     <Box minHeight="100vh" display="flex" justifyContent="center" alignItems="center">
-      <Container maxWidth="xs">
-        <Box textAlign="center" mb={3}>
-          <Typography variant="h4">Register</Typography>
-        </Box>
-        <Box>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                label="Full Name"
-                fullWidth
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Email Address"
-                fullWidth
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Password"
-                type="password"
-                fullWidth
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Grid>
+      <Container maxWidth="md">
+        <Grid container spacing={2} alignItems="center">
+          <Grid item xs={12} sm={6}>
+            <Box mr={4}>
+              <img src={logo} alt="Logo" style={ logoStyle } />
+            </Box>
           </Grid>
-        </Box>
-        <Box mt={2}>
-          <Button variant="contained" fullWidth onClick={handleRegister}>
-            Register
-          </Button>
-        </Box>
-        <Box mt={2}>
-          <Button
-            variant="contained"
-            color="secondary"
-            fullWidth
-            onClick={handleGoogleRegister}
-          >
-            Register with Google
-          </Button>
-        </Box>
-        <Box mt={2}>
-          <Typography variant="body2">
-            Already have an account? <Link to="/login">Login</Link> now.
-          </Typography>
-        </Box>
+          <Grid item xs={12} sm={6}>
+            <Box textAlign="center">
+              <Typography variant="h4">Create an Account</Typography>
+              <Box mt={2}>
+                <Button variant="contained" color="primary" size="large" fullWidth startIcon={<Google />} onClick={handleGoogleRegister}>
+                  Sign Up With Google
+                </Button>
+              </Box>
+              <Box mt={2}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="large"
+                  fullWidth
+                  startIcon={<Facebook />}
+                  onClick={handleFacebookRegister}
+                  disabled
+                >
+                  Sign Up With Facebook
+                </Button>
+              </Box>
+              <Box mt={2}>
+                <Typography variant="body1">
+                  Already have an account? <Link to="/login">Login</Link> now.
+                </Typography>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );

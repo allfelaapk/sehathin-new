@@ -1,23 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
   Container,
-  Grid,
-  TextField,
   Typography,
+  Grid,
 } from '@mui/material';
+import logo from '../../assets/images/SehaThin.png';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import {
   auth,
-  logInWithEmailAndPassword,
   signInWithGoogle,
+  signInWithFacebook,
 } from '../../firebase/auth';
+import { Google, Facebook } from '@mui/icons-material';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -28,12 +27,17 @@ const Login = () => {
     if (user) navigate('/');
   }, [user, loading, error, navigate]);
 
-  const handleLogin = () => {
-    logInWithEmailAndPassword(email, password);
-  };
-
   const handleGoogleLogin = () => {
     signInWithGoogle();
+  };
+
+  const handleFacebookLogin = () => {
+    signInWithFacebook();
+  };
+
+  const logoStyle = {
+    width: '100%',
+    height: 'auto',
   };
 
   if (loading) {
@@ -46,56 +50,47 @@ const Login = () => {
 
   return (
     <Box minHeight="100vh" display="flex" justifyContent="center" alignItems="center">
-      <Container maxWidth="xs">
-        <Box textAlign="center" mb={3}>
-          <Typography variant="h4">Login</Typography>
-        </Box>
-        <Box>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                label="Email Address"
-                fullWidth
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Password"
-                type="password"
-                fullWidth
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Grid>
+      <Container maxWidth="md">
+        <Grid container spacing={2} alignItems="center"> 
+          <Grid item xs={12} sm={6}>
+            <Box mr={4}>
+              <img src={logo} alt="Logo" style={ logoStyle } />
+            </Box>
           </Grid>
-        </Box>
-        <Box mt={2}>
-          <Button variant="contained" fullWidth onClick={handleLogin}>
-            Login
-          </Button>
-        </Box>
-        <Box mt={2}>
-          <Button
-            variant="contained"
-            color="secondary"
-            fullWidth
-            onClick={handleGoogleLogin}
-          >
-            Login with Google
-          </Button>
-        </Box>
-        <Box mt={2}>
-          <Typography variant="body2">
-            <Link to="/reset">Forgot Password</Link>
-          </Typography>
-        </Box>
-        <Box mt={2}>
-          <Typography variant="body2">
-            Don't have an account? <Link to="/register">Register</Link> now.
-          </Typography>
-        </Box>
+          <Grid item xs={12} sm={6}>
+            <Box textAlign="center">
+              <Typography variant="h4">Welcome Back</Typography>
+              <Box mt={2}>
+                <Button variant="contained" color="primary" size="large" fullWidth startIcon={<Google />} onClick={handleGoogleLogin}>
+                  Sign In With Google
+                </Button>
+              </Box>
+              <Box mt={2}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="large"
+                  fullWidth
+                  startIcon={<Facebook />}
+                  onClick={handleFacebookLogin}
+                  disabled
+                >
+                  Sign In With Facebook
+                </Button>
+              </Box>
+              {/* <Box mt={2}>
+                <Typography variant="body2">
+                  <Link to="/reset">Forgot Password</Link>
+                </Typography>
+              </Box> */}
+              <Box mt={2}>
+                <Typography variant="body1">
+                  Don't have an account? <Link to="/register">Register</Link> now.
+                </Typography>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );

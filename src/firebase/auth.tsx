@@ -1,9 +1,8 @@
 import {
   getAuth,
   GoogleAuthProvider,
+  FacebookAuthProvider,
   signInWithPopup,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   signOut,
   User,
@@ -14,6 +13,7 @@ import { auth as firebaseAuth } from './firebase';
 
 const auth = getAuth(firebaseAuth);
 const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 
 const signInWithGoogle = async () => {
   try {
@@ -25,22 +25,9 @@ const signInWithGoogle = async () => {
   }
 };
 
-const logInWithEmailAndPassword = async (email: string, password: string) => {
+const signInWithFacebook = async () => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-  } catch (err: any) {
-    console.error(err);
-    alert(err.message);
-  }
-};
-
-const registerWithEmailAndPassword = async (
-  name: string,
-  email: string,
-  password: string
-) => {
-  try {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
+    const res = await signInWithPopup(auth, facebookProvider);
     const user = res.user;
   } catch (err: any) {
     console.error(err);
@@ -74,8 +61,7 @@ const getCurrentUser = (): Promise<User | null> => {
 export {
   auth,
   signInWithGoogle,
-  logInWithEmailAndPassword,
-  registerWithEmailAndPassword,
+  signInWithFacebook,
   sendPasswordReset,
   logout,
   getCurrentUser,

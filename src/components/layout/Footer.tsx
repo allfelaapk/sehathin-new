@@ -36,7 +36,7 @@ export default function Footer() {
               SehaThin
             </Typography>
             <Typography variant="body2">
-              Our mission is Provide your need to achieve healthy body goals
+              Our mission is provide your need to achieve healthy body goals
             </Typography>
             <Link to='/home'>
               <img src={logo} alt='logo' style={logoStyle} />

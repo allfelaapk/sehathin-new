@@ -12,7 +12,7 @@ export default function About() {
       <Jumbotron
         label="About Us"
         title="Hello, We’re SehaThin."
-        subtitle="OUR MISSION: Provide your need to achieve healthy body goals"
+        subtitle="Our Mission is provide your need to achieve healthy body goals"
       />
 
       <Container>
