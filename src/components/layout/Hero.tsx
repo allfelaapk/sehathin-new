@@ -23,7 +23,7 @@ export default function HeroSection() {
           alignItems: 'center',
           minHeight: '640px',
           paddingTop: 12,
-          mx: { xs: 2, md: 4},
+          margin: { xs: '2.5rem 0 4rem 0', md: 4},
         }}
       >
         <Grid container spacing={2}>

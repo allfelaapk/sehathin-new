@@ -36,6 +36,9 @@ export default function Article() {
             m: 2,
             maxWidth: 1200,
             flexGrow: 1,
+            boxShadow: 'none',
+            border: '1px solid #ddd',
+            borderRadius: '20px',
             backgroundColor: (theme) =>
               theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
           }}

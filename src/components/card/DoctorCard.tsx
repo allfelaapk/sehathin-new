@@ -23,12 +23,12 @@ export default function DoctorCard({ name, imageUrl }: DoctorCardProps) {
   const cardStyle = {
     maxWidth: { xs: 345, md: '100%' },
     py: 2,
-    boxShadow: 'none',
+    boxShadow: '0px 0px 2px rgba(0, 0, 0, 0.2)',
+    borderRadius: '20px',
   };
 
   const cardContentStyle = {
     textAlign: 'center',
-    p: '1em',
   };
 
   const nameStyle = {

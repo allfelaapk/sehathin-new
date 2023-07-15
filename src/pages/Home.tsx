@@ -24,13 +24,15 @@ export default function Home() {
     }
   };
 
-  const boxStyle = {
+  const bmiStyle = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: { xs: 2, md: 4 },
-    borderRadius: 1,
+    margin: { xs: 1, md: 2 },
+    padding: { xs: 2, md: 4 },
+    borderRadius: 8,
+    boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.2)',
   };
 
   const titleStyle = {
@@ -63,7 +65,7 @@ export default function Home() {
     <>
       <Container>
         <Hero />
-        <Box sx={boxStyle}>
+        <Box sx={bmiStyle}>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <Box sx={gridItemStyle}>

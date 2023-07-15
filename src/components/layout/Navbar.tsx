@@ -13,7 +13,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { Login, Logout } from '@mui/icons-material';
 import logo from '../../assets/images/SehaThin.png';
-import { logout, getCurrentUser } from '../../firebase/auth';
+import { logout, getCurrentUser } from '../../firebase/firebaseAuth';
 
 export default function Navbar() {
   const link = {

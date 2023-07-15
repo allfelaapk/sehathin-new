@@ -12,6 +12,7 @@ export default function Footer() {
     backgroundColor: '#19AE15',
     color: 'white',
     padding: '4rem 1rem',
+    marginTop: '1rem',
   };
 
   const logoStyle = {
