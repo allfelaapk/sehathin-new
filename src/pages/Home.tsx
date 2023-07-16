@@ -85,35 +85,6 @@ export default function Home() {
 
         <Box sx={sectionStyle}>
           <Typography variant='h4' sx={titleStyle}>
-            Our Nutritionists
-          </Typography>
-          <Typography variant='body1' sx={subtitleStyle}>
-            We have experts to help you stay fit
-          </Typography>
-        </Box>
-
-        <div className="carousel-container" ref={sliderRef}>
-          <div className="carousel">
-            {doctorList.map((doctor) => (
-              <DoctorCard
-                key={doctor.id}
-                name={doctor.name}
-                imageUrl={doctor.imageUrl}
-              />
-            ))}
-          </div>
-        </div>
-
-        <Button onClick={handleScrollLeft} title="Scroll Left">
-          <KeyboardArrowLeft />
-        </Button>
-
-        <Button onClick={handleScrollRight} title="Scroll Right">
-          <KeyboardArrowRight />
-        </Button>
-
-        <Box sx={sectionStyle}>
-          <Typography variant='h4' sx={titleStyle}>
             Our Service
           </Typography>
           <Typography variant='body1' sx={subtitleStyle}>
@@ -145,6 +116,35 @@ export default function Home() {
             />
           </div>
         </div>
+
+        <Box sx={sectionStyle}>
+          <Typography variant='h4' sx={titleStyle}>
+            Our Nutritionists
+          </Typography>
+          <Typography variant='body1' sx={subtitleStyle}>
+            We have experts to help you stay fit
+          </Typography>
+        </Box>
+
+        <div className="carousel-container" ref={sliderRef}>
+          <div className="carousel">
+            {doctorList.map((doctor) => (
+              <DoctorCard
+                key={doctor.id}
+                name={doctor.name}
+                imageUrl={doctor.imageUrl}
+              />
+            ))}
+          </div>
+        </div>
+
+        <Button onClick={handleScrollLeft} title="Scroll Left">
+          <KeyboardArrowLeft />
+        </Button>
+
+        <Button onClick={handleScrollRight} title="Scroll Right">
+          <KeyboardArrowRight />
+        </Button>
       </Container>
       <Footer />
     </>

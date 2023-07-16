@@ -1,6 +1,6 @@
 import { Container, Box, Typography, Grid } from '@mui/material';
-import image1 from '../assets/images/1.jpg';
-import image2 from '../assets/images/2.jpg';
+import image1 from '../assets/images/1.webp';
+import image2 from '../assets/images/2.webp';
 import Footer from '../components/layout/Footer';
 import Navbar from '../components/layout/Navbar';
 import Jumbotron from '../components/layout/Jumbotron';

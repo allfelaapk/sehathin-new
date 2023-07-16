@@ -9,9 +9,17 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ title, description, image }: ServiceCardProps) {
   const cardStyle = {
+    display: 'flex',
+    flexDirection: 'column',
     boxShadow: 'none',
     border: '1px solid #ddd',
     borderRadius: '20px',
+  };
+
+  const cardContentStyle = {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 2,
   };
 
   const titleStyle = {
@@ -22,14 +30,16 @@ export default function ServiceCard({ title, description, image }: ServiceCardPr
 
   return (
     <Card sx={ cardStyle }>
-      <CardContent>
+      <CardContent sx={ cardContentStyle }>
         <Typography variant='h3'>
           {image}
         </Typography>
-        <Typography variant='h4' component='h4' sx={ titleStyle }>
-          {title}
+        <Typography component='div'>
+          <Typography variant='h4' component='h4' sx={ titleStyle }>
+            {title}
+          </Typography>
+          <Typography variant='body2' color='text.secondary'>{description}</Typography>
         </Typography>
-        <Typography variant='body1' color='text.secondary'>{description}</Typography>
       </CardContent>
       <Divider />
       <CardActions>
